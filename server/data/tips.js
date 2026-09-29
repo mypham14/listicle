@@ -46,6 +46,30 @@ const tipData = [
       "category": "Team & Partnerships",
       "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop&q=80",
       "submittedBy": "Jordan Whitfield"
+  },
+  {
+      "id": 7,
+      "title": "Price on Value, Not on Effort",
+      "text": "Customers don't care how many hours something took you to build — they care what it's worth to them. Anchor your price to the outcome you deliver, then test higher than feels comfortable before you assume the market can't bear it.",
+      "category": "Pricing Strategy",
+      "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop&q=80",
+      "submittedBy": "Talia Reyes"
+  },
+  {
+      "id": 8,
+      "title": "Retention Beats Acquisition Every Time",
+      "text": "It's far cheaper to keep an existing customer happy than to win a new one. Spend the first few months obsessing over why people churn before you pour money into ads to replace the ones you're losing.",
+      "category": "Customer Retention",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80",
+      "submittedBy": "Noah Kim"
+  },
+  {
+      "id": 9,
+      "title": "Get Your Legal Basics Sorted Early",
+      "text": "A simple contract template, a clear terms of service, and the right business entity can save you from expensive disputes later. Spend a small amount up front on legal advice instead of learning the hard way after a deal goes sideways.",
+      "category": "Legal & Compliance",
+      "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=800&h=600&fit=crop&q=80",
+      "submittedBy": "Renee Okafor"
   }
 ]
 

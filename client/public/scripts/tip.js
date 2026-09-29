@@ -28,11 +28,16 @@ const renderTip = async () => {
         // Set the title of the page to the tip's title.
         document.title = `Founder's Guide - ${tip.title}`
     }
-    else { // If tip is not found, display a message indicating that the tip was not found
+    else { // If tip is not found, clear the empty layout and show a centered message instead
+        tipContent.innerHTML = ''
         const message = document.createElement('h2')
+        message.className = 'tip-not-found'
         message.textContent = 'Tip Not Found 😞'
         tipContent.appendChild(message)
     }
+
+    // Reveal the content only once it's fully populated, so nothing (like the Back button) flashes in early
+    tipContent.hidden = false
 }
 
 renderTip()

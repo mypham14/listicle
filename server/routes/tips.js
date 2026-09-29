@@ -1,7 +1,7 @@
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import tipData from '../data/tips.js'
+import TipsController from '../controllers/tips.js'
 
 // Convert the current module URL to a file path
 const __filename = fileURLToPath(import.meta.url)
@@ -13,9 +13,7 @@ const __dirname = path.dirname(__filename)
 const router = express.Router()
 
 // Define a route to get all tips
-router.get('/', (req, res) => {
-    res.status(200).json(tipData)
-})
+router.get('/', TipsController.getTips)
 
 // Define a route to get a specific tip by its ID
 router.get('/:tipId', (req, res) => {

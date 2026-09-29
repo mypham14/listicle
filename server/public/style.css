@@ -168,6 +168,12 @@ header nav > ul:first-child {
 }
 
 /* Detail page */
+.tip-not-found {
+    width: 100%;
+    margin: 4rem 0;
+    text-align: center;
+}
+
 .tip-info article {
     display: flex;
     align-items: stretch;

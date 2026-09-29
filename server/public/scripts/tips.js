@@ -1,14 +1,13 @@
-// Retrieve the tips from the server and render them to the page
-const renderTips = async () => {
-    const response = await fetch('/tips')
-    const data = await response.json()
+// Point to the element with the ID main-content
+const mainContent = document.getElementById('main-content')
 
-    // Point to the element with the ID main-content
-    const mainContent = document.getElementById('main-content')
+// Render a given list of tips as cards, replacing whatever is currently shown
+const renderCards = (tips) => {
+    mainContent.innerHTML = ''
 
-    // Use conditional rendering based on whether data is null
-    if (data && data.length) {
-        data.map(tip => {
+    // Use conditional rendering based on whether tips is empty
+    if (tips && tips.length) {
+        tips.map(tip => {
             // Create a new article element for each tip, with the tip's image as a full-bleed background
             const card = document.createElement('article')
             card.className = 'tip-card'
@@ -53,11 +52,33 @@ const renderTips = async () => {
             mainContent.appendChild(card)
         })
     }
-    else { // If data is empty, display a message indicating that there are no tips available
+    else { // If tips is empty, display a message indicating that none matched
         const message = document.createElement('h2')
-        message.textContent = 'No Tips Available 😞'
+        message.textContent = 'No Tips Found 😞'
         mainContent.appendChild(message)
     }
+}
+
+// Fetch the tips from the server, render them, and wire up search-by-attribute filtering
+const renderTips = async () => {
+    const response = await fetch('/tips')
+    const data = await response.json()
+
+    renderCards(data)
+
+    // Filter the already-fetched tips by title or category as the user types
+    const searchInput = document.getElementById('tip-search')
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.trim().toLowerCase()
+
+        const filteredTips = data.filter(tip =>
+            tip.title.toLowerCase().includes(query) ||
+            tip.category.toLowerCase().includes(query) ||
+            tip.submittedBy.toLowerCase().includes(query)
+        )
+
+        renderCards(filteredTips)
+    })
 }
 
 // Call the renderTips function to fetch and display the tips on page load
